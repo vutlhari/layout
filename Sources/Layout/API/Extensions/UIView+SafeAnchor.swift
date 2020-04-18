@@ -20,6 +20,7 @@ public extension UIView {
         }
         return bottomAnchor
     }
+
     var safeLeadingAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
             return safeAreaLayoutGuide.leadingAnchor
@@ -60,5 +61,19 @@ public extension UIView {
             return safeAreaLayoutGuide.centerYAnchor
         }
         return centerYAnchor
+    }
+    
+    var safeHeightAnchor: NSLayoutDimension {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide.heightAnchor
+        }
+        return heightAnchor
+    }
+    
+    var safeWidthAnchor: NSLayoutDimension {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide.widthAnchor
+        }
+        return widthAnchor
     }
 }
