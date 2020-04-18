@@ -47,4 +47,18 @@ public extension UIView {
         }
         return rightAnchor
     }
+    
+    var safeCenterXAnchor: NSLayoutXAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide.centerXAnchor
+        }
+        return centerXAnchor
+    }
+
+    var safeCenterYAnchor: NSLayoutYAxisAnchor {
+        if #available(iOS 11.0, *) {
+            return safeAreaLayoutGuide.centerYAnchor
+        }
+        return centerYAnchor
+    }
 }
