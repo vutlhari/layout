@@ -74,7 +74,7 @@ class ViewController: UIViewController {
 
         self.view.addSubview(box)
         self.box.backgroundColor = .red
-        self.layout {
+        self.box.layout {
             $0.centerX == self.view.centerXAnchor
             $0.centerY == self.view.centerYAnchor
             $0.height == 80
