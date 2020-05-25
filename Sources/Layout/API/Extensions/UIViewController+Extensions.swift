@@ -22,7 +22,7 @@ public extension UIViewController {
     }
     
     @available(iOS 13, *)
-    public func asPreview() -> some View {
+    func asPreview() -> some View {
         Preview(viewController: self)
     }
 }

@@ -45,7 +45,7 @@ public extension UIView {
     }
     
     @available(iOS 13, *)
-    public func asPreview() -> some View {
+    func asPreview() -> some View {
         Preview(view: self)
     }
 }
