@@ -7,7 +7,7 @@
 import UIKit
 import SwiftUI
 
-extension UIViewController {
+public extension UIViewController {
     @available(iOS 13, *)
     private struct Preview: UIViewControllerRepresentable {
         var viewController: UIViewController
@@ -22,7 +22,7 @@ extension UIViewController {
     }
     
     @available(iOS 13, *)
-    func asPreview() -> some View {
+    public func asPreview() -> some View {
         Preview(viewController: self)
     }
 }
