@@ -1,10 +1,11 @@
 /**
-*  Merge
+*  Layout
 *  Copyright © IntelleQ Stuff 2020
 *  MIT license, see LICENSE file for details
 */
 
 import UIKit
+import SwiftUI
 
 public extension UIView {
     func layout(using closure: (LayoutProxy) -> Void) {
@@ -26,5 +27,25 @@ public extension UIView {
         addSubview(subview)
         closure(subview)
         return subview
+    }
+}
+
+public extension UIView {
+    @available(iOS 13, *)
+    private struct Preview: UIViewRepresentable {
+        var view: UIView
+        
+        func makeUIView(context: Context) -> UIView {
+            view
+        }
+        
+        func updateUIView(_ uiView: UIView, context: Context) {
+            // No-op
+        }
+    }
+    
+    @available(iOS 13, *)
+    func asPreview() -> some View {
+        Preview(view: self)
     }
 }
