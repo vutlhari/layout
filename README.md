@@ -123,6 +123,76 @@ constraints.
 - `width`
 - `height`
 
+
+## Xcode Previews
+
+As of version `0.3.0`, Layout now includes some abstractions to get the most out of Xcode’s SwiftUI-powered Previews feature. We can now quickly preview what a `UIView` or `UIViewController` will look like when rendered in both light and dark mode, using a single `PreviewProvider`:
+
+### For UIView, use `previewAsComponent()`
+
+```swift
+import UIKit
+import SwiftUI
+import Layout
+
+class SampleView: UIView {
+    // UI code goes here
+}
+
+// The code below is all you need for Xcode to render the Preview
+#if DEBUG
+@available(iOS 13, *)
+struct SampleViewPreview: PreviewProvider {
+    static var previews: some View {
+        SampleViewPreview.previewAsComponent()
+    }
+}
+#endif
+```
+
+### For UIViewController, use `.previewAsScreen()`
+
+```swift
+import UIKit
+import SwiftUI
+import Layout
+
+class SampleViewController: UIViewController {
+    // Controller code goes here
+}
+
+// The code below is all you need for Xcode to render the Preview
+#if DEBUG
+@available(iOS 13, *)
+struct SampleViewPreview: PreviewProvider {
+    static var previews: some View {
+        SampleViewPreview.previewAsComponent()
+    }
+}
+#endif
+```
+
+### Layout also ships with a preview primitive, `.asPreview()`, which works for both `UIView` `UIViewController`. This gives us more control over how we want to preview our components. For example, we we can use the `systemBackground` API on `UIColor` to mimic what our component will look like when displayed in dark mode (even if its environment will still remain in light mode):
+
+```swift
+#if DEBUG
+struct TableViewCellPreview: PreviewProvider {
+    static var previews: some View {
+        TableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+            .asPreview()
+            .background(Color(UIColor.systemBackground))
+            .colorScheme(.dark)
+            .environment(\.sizeCategory, .accessibilityLarge)
+    }
+}
+#endif
+
+/*
+It is recommended to wrap the preview in a DEBUG compiler directive. Doing this will prevent us from accidentally using this type in our production code - the compiler would throw an error when we build our app for release if we did.
+*/
+```
+
+
 ## License
 
 Layout is released under the MIT license. See LICENSE for details.

@@ -1,5 +1,5 @@
 /**
-*  Merge
+*  Layout
 *  Copyright © IntelleQ Stuff 2020
 *  MIT license, see LICENSE file for details
 */
