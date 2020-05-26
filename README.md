@@ -128,7 +128,7 @@ constraints.
 
 As of version `0.3.0`, Layout now includes some abstractions to get the most out of Xcode’s SwiftUI-powered Previews feature. We can now quickly preview what a `UIView` or `UIViewController` will look like when rendered in both light and dark mode, using a single `PreviewProvider`:
 
-### For UIView, use `previewAsComponent()`
+#### For UIView, use `previewAsComponent()`
 
 ```swift
 import UIKit
@@ -150,7 +150,7 @@ struct SampleViewPreview: PreviewProvider {
 #endif
 ```
 
-### For UIViewController, use `.previewAsScreen()`
+#### For UIViewController, use `.previewAsScreen()`
 
 ```swift
 import UIKit
@@ -191,11 +191,7 @@ struct TableViewCellPreview: PreviewProvider {
 #endif
 ```
 
-```wrap
-/*
-It is recommended to wrap the preview in a DEBUG compiler directive. Doingthis will prevent us from accidentally using this type in our production code - the compiler would throw an error when we build our app for release if we did.
-*/
-```
+`It is recommended to wrap the preview in a DEBUG compiler directive. Doing this will prevent us from accidentally using this type in our production code - the compiler would throw an error when we build our app for release if we did.`
 
 
 ## License
