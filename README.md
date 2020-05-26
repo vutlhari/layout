@@ -144,7 +144,7 @@ class SampleView: UIView {
 @available(iOS 13, *)
 struct SampleViewPreview: PreviewProvider {
     static var previews: some View {
-        SampleViewPreview.previewAsComponent()
+        SampleView().previewAsComponent()
     }
 }
 #endif
@@ -166,7 +166,7 @@ class SampleViewController: UIViewController {
 @available(iOS 13, *)
 struct SampleViewPreview: PreviewProvider {
     static var previews: some View {
-        SampleViewPreview().previewAsScreen(on: [
+        SampleViewController().previewAsScreen(on: [
             .iPhone11,
             .iPad7thGen
         ])
